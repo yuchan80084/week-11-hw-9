@@ -1,0 +1,47 @@
+#include <iostream>
+#include <fstream>
+#include "health2.h"
+using namespace std;
+int main() {
+   /*CHealth VIP(65), *trump;  // need for CHealth() to be public
+   trump = new CHealth(70);
+
+   cout << "  " << VIP.age << "  " << trump->age << endl;
+
+   VIP.measureCel();
+   trump->measureCel();
+
+   cout << "  " << VIP.cel << "C  " << trump->faren << "F \n";
+   cout << "  size " << sizeof(CHealth) << "\n"; */
+   cout << " class size " << sizeof(CHealth) << endl;
+
+   CHealth* students = new CHealth[5];
+
+   for (int i = 0; i < 3; i++) {
+      students[i].measure(20 + rand() % 4);
+      (students + i)->run5min();
+   }
+   students[3].measure(20 + rand() % 5);
+   (students + 3)->run5min();
+   students[4].measure();
+   //students[4].GetBMI();   
+   //cout << students[5].weight << endl;   //private memberdata
+   cout << students[1].beat5min[30] << endl;
+   cout << students[3].beat5min[30] << endl;
+   //students[1].GetHeight();
+   cout << students[3].height << endl;
+   cout << "number\n";
+   cout << students[0].MemNum << endl;
+   cout << students[1].MemNum << endl;
+   cout << students[2].MemNum << endl;
+   cout << students[3].MemNum << endl;
+   cout << students[4].MemNum << endl;
+
+
+   cout << "end" << endl;
+   delete[] students;  // delete objects
+
+   return 123;
+
+
+}
